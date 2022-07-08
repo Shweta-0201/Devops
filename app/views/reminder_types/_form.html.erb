@@ -1,0 +1,13 @@
+<%= form_for @reminder_type do |f| %>
+  <% if reminder_type.errors.any? %>
+    <%= render "common/error_message",object: reminder_type %>
+  <% end %>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <%=f.text_field :name, class: "form-control",placeholder: "Enter name", required: true %>
+    <br>
+  </div>
+  <div class="mb-3">
+      <%= f.submit "Submit",class: "btn-success" %>
+  </div>
+<% end %>

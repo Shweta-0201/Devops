@@ -1,0 +1,24 @@
+<h1>ReminderTypes</h1>
+<%= link_to "New", new_reminder_type_path %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">No of Remainders</th>
+      <th scope="col">Name</th>
+      <th scope="col">Reminders</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reminder_types.each do |reminder_type| %>
+      <tr>
+        <th scope="row"><%=reminder_type.id %></th>
+        <td><%= reminder_type.name %></td>
+        <td><%= reminder_type.reminders.count %></td>
+        <td><%= link_to "Reminders", reminder_type_reminders_path(reminder_type) %></td>
+        <td><%= link_to "Edit", edit_reminder_type_path(reminder_type) %><%= button_to "Delete", reminder_type_path(reminder_type),method: :delete,class: "btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

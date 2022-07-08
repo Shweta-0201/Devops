@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Remainder Types</th>
+      <th scope="col">Expire at</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reminders.each do |reminder| %>
+      <tr>
+        <th scope="row"><%=reminder.id %></th>
+        <td><%= reminder.title %></td>
+        <td><%= reminder.content %></td>
+        <td><%= reminder.reminder_type %></td>
+        <td><%= reminder.expire_at %></td>
+        <td><%= reminder.status %></td>
+        <td><%= link_to "Edit", edit_reminder_path(reminder),class: "btn-primary" %>
+        <br>
+        <td><%= button_to "Delete", reminder_path(reminder),method: :delete,class: "btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
